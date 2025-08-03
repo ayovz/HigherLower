@@ -1,5 +1,7 @@
 import random
 import os
+import time
+
 from data import data, ascii_art
 
 
@@ -65,6 +67,7 @@ def main():
         again = input("\nWould you like to play again? (y/n): ").strip().lower()
         if again != 'y':
             print("Thanks for playing!")
+            time.sleep(2)
             replay = False
 
         clear_screen()
