@@ -2,7 +2,7 @@ import random
 import os
 import time
 
-from data import data, ascii_art
+from data import people, ascii_art
 
 
 def clear_screen():
@@ -11,7 +11,7 @@ def clear_screen():
 
 def get_random_account(exclude=None):
     while True:
-        account = random.choice(data)
+        account = random.choice(people)
         if account != exclude:
             return account
 
@@ -36,8 +36,8 @@ def play_game():
         account2 = get_random_account(account1)
 
         print("\nWho has more Instagram followers?")
-        print(f"A: {account1['name']}")
-        print(f"B: {account2['name']}")
+        print(f"A: {account1['name']}, a {account1['description']} from {account1['country']}.")
+        print(f"B: {account2['name']}, a {account2['description']} from {account2['country']}.")
         usr_ans = input("Your answer (A/B): ").strip().upper()
 
         if usr_ans not in ['A', 'B']:
