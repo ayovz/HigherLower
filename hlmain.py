@@ -30,9 +30,10 @@ def get_account_by_label(label, a1, a2):
 def play_game():
     score = 0
     game_over = False
+    account1 = get_random_account()
 
     while not game_over:
-        account1 = get_random_account()
+        print(ascii_art)
         account2 = get_random_account(account1)
 
         print("\nWho has more Instagram followers?")
@@ -51,6 +52,9 @@ def play_game():
             score += 1
             print(f"\n✅ Correct! {correct_account['name']} has {correct_account['followers']:,} followers.")
             print(f"🏆 Score: {score}")
+            account1 = correct_account
+            time.sleep(1)
+            clear_screen()
         else:
             print(f"\n❌ Incorrect! {correct_account['name']} has {correct_account['followers']:,} followers.")
             print(f"Final Score: {score}")
@@ -61,7 +65,6 @@ def main():
     replay = True
     while replay:
         clear_screen()
-        print(ascii_art)
         play_game()
 
         again = input("\nWould you like to play again? (y/n): ").strip().lower()
